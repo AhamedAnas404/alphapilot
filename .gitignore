@@ -1,0 +1,36 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+env/
+.env
+
+# Data cache (large files)
+data/*.parquet
+
+# Per-ticker equity parquets are small (<1 MB) and committed for dashboard use
+# Nothing under reports/ is ignored
+
+# CI venv
+.ci-venv/
+
+# Paper trade log (committed by CI bot)
+# paper_trades.csv  ← intentionally tracked
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/

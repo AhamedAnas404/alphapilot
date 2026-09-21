@@ -1,0 +1,22 @@
+{
+  "strategy_cagr": -0.0787,
+  "strategy_sharpe": -0.4873,
+  "strategy_max_drawdown": -0.6499,
+  "bh_cagr": 0.1536,
+  "bh_sharpe": 0.8967,
+  "bh_max_drawdown": -0.3372,
+  "win_rate": 0.5142,
+  "turnover_pct": 38.25,
+  "total_trades": 1011,
+  "n_days": 2643,
+  "gross_cagr": 0.0647,
+  "gross_sharpe": 0.5028,
+  "gross_max_drawdown": -0.3506,
+  "oos_accuracy": 0.4974,
+  "oos_auc": 0.4869,
+  "exposure_pct": 56.15,
+  "avg_holding_days": 2.93,
+  "ticker": "SPY",
+  "oos_start": "2016-03-15",
+  "oos_end": "2026-09-17"
+}

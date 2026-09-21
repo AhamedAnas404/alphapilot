@@ -1,0 +1,22 @@
+{
+  "strategy_cagr": -0.0228,
+  "strategy_sharpe": 0.001,
+  "strategy_max_drawdown": -0.5199,
+  "bh_cagr": 0.2883,
+  "bh_sharpe": 1.0228,
+  "bh_max_drawdown": -0.3852,
+  "win_rate": 0.5218,
+  "turnover_pct": 33.94,
+  "total_trades": 897,
+  "n_days": 2643,
+  "gross_cagr": 0.111,
+  "gross_sharpe": 0.5942,
+  "gross_max_drawdown": -0.353,
+  "oos_accuracy": 0.4958,
+  "oos_auc": 0.4878,
+  "exposure_pct": 49.38,
+  "avg_holding_days": 2.91,
+  "ticker": "AAPL",
+  "oos_start": "2016-03-15",
+  "oos_end": "2026-09-17"
+}

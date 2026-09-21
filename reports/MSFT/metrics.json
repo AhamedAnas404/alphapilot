@@ -1,0 +1,22 @@
+{
+  "strategy_cagr": -0.0096,
+  "strategy_sharpe": 0.0685,
+  "strategy_max_drawdown": -0.6322,
+  "bh_cagr": 0.2524,
+  "bh_sharpe": 0.9571,
+  "bh_max_drawdown": -0.3715,
+  "win_rate": 0.5294,
+  "turnover_pct": 36.28,
+  "total_trades": 959,
+  "n_days": 2643,
+  "gross_cagr": 0.1361,
+  "gross_sharpe": 0.6819,
+  "gross_max_drawdown": -0.3627,
+  "oos_accuracy": 0.5102,
+  "oos_auc": 0.5167,
+  "exposure_pct": 53.46,
+  "avg_holding_days": 2.94,
+  "ticker": "MSFT",
+  "oos_start": "2016-03-15",
+  "oos_end": "2026-09-17"
+}

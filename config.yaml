@@ -1,0 +1,35 @@
+data:
+  tickers: [SPY, AAPL, MSFT]
+  start: "2015-01-01"
+  end: null  # null = today
+  cache_dir: data/
+
+features:
+  returns_windows: [1, 5, 10, 21]
+  vol_windows: [10, 21]
+  rsi_window: 14
+  macd_fast: 12
+  macd_slow: 26
+  macd_signal: 9
+  ma_windows: [10, 50]
+  vol_zscore_window: 20
+
+model:
+  target_horizon: 1          # next-day direction
+  min_train_size: 252        # 1 year minimum
+  n_estimators: 300
+  learning_rate: 0.05
+  num_leaves: 31
+  random_state: 42
+
+strategy:
+  prob_threshold: 0.52
+  transaction_cost: 0.001    # 10 bps per side
+  slippage: 0.0005           # 5 bps per side
+
+backtest:
+  benchmark_ticker: SPY
+  reports_dir: reports/
+
+paper_trading:
+  log_file: paper_trades.csv

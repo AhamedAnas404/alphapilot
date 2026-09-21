@@ -1,0 +1,69 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "0 6 * * 1-5"   # weekdays 06:00 UTC — daily signal run
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -e ".[dev]" --quiet
+
+      - name: Lint (ruff)
+        run: ruff check src/ tests/ run_daily.py train_backtest.py dashboard.py
+
+      - name: Test (pytest)
+        run: pytest tests/ -v --tb=short --cov=src/alphapilot --cov-report=term-missing
+
+  daily-signal:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    needs: lint-and-test
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -e . --quiet
+
+      - name: Run daily signal
+        run: python run_daily.py
+
+      - name: Commit trade log
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add paper_trades.csv || true
+          git diff --cached --quiet || git commit -m "chore: daily signal $(date -u +%Y-%m-%d)"
+          git push
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: lint-and-test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t alphapilot .
+
+      - name: Smoke-test import
+        run: docker run --rm alphapilot python -c "import alphapilot; print('ok')"

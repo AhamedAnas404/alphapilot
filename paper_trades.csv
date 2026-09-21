@@ -1,0 +1,4 @@
+date,signal_date,ticker,prob_up,signal,threshold
+2026-09-21,2026-09-18,SPY,0.6055,LONG,0.52
+2026-09-21,2026-09-18,AAPL,0.4869,CASH,0.52
+2026-09-21,2026-09-18,MSFT,0.3411,CASH,0.52
